@@ -208,21 +208,34 @@
       justify-content: space-between;
       border-bottom: none;
 
-      li {
-        min-width: 11rem;
+      @media (max-width: $screen-sm) {
+        padding: 10px 10px 0 10px;
       }
 
-      .nav-link {
-        .active {
-          background-color: none;
-          border-color: none;
+      li {
+        min-width: 11rem;
+        @media (max-width: $screen-sm) {
+          min-width: 9rem;
         }
       }
 
+      .nav-link {
+        border-bottom: 3px solid #898d9a;
+      }
+
       .nav-link:hover {
-        border: none;
-        color: none;
+        color: black;
+        border-top: none;
+        border-left: none;
+        border-right: none;
         // border-bottom: 3px solid #421983;
+        // border-bottom: 4px solid #898d9a;
+        // .active {
+        //   border-bottom: 4px solid #421983 !important;
+        // }
+        .tab-img {
+          filter: grayscale(0);
+        }
       }
 
       button {
@@ -234,12 +247,39 @@
       .active {
         border: none;
         color: #421983;
-        border-bottom: 3px solid #421983;
+        border-bottom: 4px solid #421983;
       }
     }
     .nav-item:hover {
       border: none;
-      color: none;
+      color: black;
+    }
+
+    .tabs-div {
+      flex-direction: column;
+    }
+
+    .tab-head {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5625rem;
+    }
+
+    .tab-img {
+      width: 105px;
+      height: 105px;
+
+      @media (max-width: $screen-sm) {
+        width: 75px;
+        height: 75px;
+      }
+      filter: grayscale(1);
+    }
+
+    .active {
+      .tab-img {
+        filter: grayscale(0);
+      }
     }
   }
 
@@ -252,6 +292,10 @@
   .tab-card {
     padding: 85px 0.75rem 30px 4.1875rem;
     display: flex;
+    @media (max-width: $screen-sm) {
+      padding: 85px 0.75rem 30px 2.1875rem;
+      flex-wrap: wrap;
+    }
 
     .content {
       h3 {
@@ -292,6 +336,22 @@
     @media (max-width: $screen-sm) {
       background-image: none;
       width: 0px;
+    }
+
+    @media (max-width: $screen-xl) {
+      width: 600px;
+      left: 59%;
+    }
+
+    @media (max-width: $screen-ml) {
+      width: 500px;
+      left: 59%;
+    }
+
+    @media (max-width: $screen-lg) {
+      width: 350px;
+      left: 59%;
+      height: 746px;
     }
   }
   .index-quote-wrap {
@@ -373,13 +433,11 @@
       margin: 0 auto;
 
       span {
-        font-size: 1rem;
+        font-size: 21px;
         line-height: 1.9688rem;
+        font-weight: 400;
       }
     }
-  }
-
-  .index-figures-number {
   }
 
   .index-figures-number-heart::after {
@@ -390,7 +448,8 @@
     height: 50px;
     background-size: contain;
     background-repeat: no-repeat;
-    left: 77%;
+    top: -10px;
+    left: 65%;
     background-image: url("https://www.semrush.com/static/images/heart.6e0968f39befa7d22627.svg");
   }
 
@@ -508,8 +567,24 @@
       z-index: -1;
       background-repeat: no-repeat;
       opacity: 1;
-      transform: scale(1.6);
+      transform: scale(1.5);
       left: 40%;
+      @media (max-width: $screen-sm) {
+        background: none;
+        background-size: 200px 200px;
+        left: 30%;
+      }
+
+      @media (max-width: $screen-ml) {
+        width: 80%;
+        background-size: 320px 272px;
+        right: 30px;
+      }
+
+      @media (max-width: $screen-xl) {
+        transform: scale(1.2);
+        left: 18%;
+      }
     }
 
     @media (max-width: $screen-sm) {
@@ -638,6 +713,12 @@
     line-height: 1.2;
   }
 
+  .nav-pills {
+    .nav-link {
+      border-radius: 1.5625rem;
+    }
+  }
+
   .nav-item {
     .active {
       background-color: #421983;
@@ -680,15 +761,19 @@
     font-weight: 700;
     font-size: 2rem;
     border-radius: 1rem;
+    position: relative;
+
+    @media (max-width: $screen-sm) {
+      padding: 3.75rem 2.375rem;
+    }
 
     h2 {
       font-weight: 700;
       font-size: 2rem;
     }
     img {
-      margin-top: 32px;
-      margin-bottom: 16px;
       border-radius: 50%;
+      margin: 16px auto;
     }
 
     .name {
@@ -700,6 +785,20 @@
       font-weight: 400;
       color: #171a22;
     }
+  }
+
+  .slick-next:before {
+    color: #171a22;
+    // position: absolute;
+    // top: -203px;
+    // right: 594px;
+  }
+
+  .slick-prev:before {
+    color: #171a22;
+    // position: absolute;
+    // top: -203px;
+    // left: 594px;
   }
 }
 
